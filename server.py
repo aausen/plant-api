@@ -2,14 +2,13 @@
 
 from logging import debug
 from flask import Flask, request, jsonify
+import json
 
 app = Flask(__name__)
 
-plants = [ 
-    {"id": 1, "name": "Ficus", "schedule": 2, "tips": "Lots of light, lots of water"},
-    {"id": 2, "name": "Lime Tree", "schedule": 4, "tips": "Lots of light, lots of water"},
-    {"id": 3, "name": "Aloe", "schedule": 14, "tips": "Medium light, light water"},
-]
+plants = json.load(open(f'{app.root_path}/data/plants.json', 'r'))
+
+    
 
 def _find_next_id():
     return max(plant["id"] for plant in plants) + 1
@@ -26,6 +25,17 @@ def add_plant():
         plants.append(plant)
         return plant, 201
     return {error: "Request must be in JSON"}, 415
+
+@app.get("/plants/<plant_id>")
+def get_single_plant(plant_id):
+    
+    return jsonify(plants[plant_id])
+
+@app.post("/plants/<plant_id>")
+def update_plant(plant_id):
+
+    plant_to_update = plants[plant_id]
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)

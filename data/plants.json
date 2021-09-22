@@ -1,0 +1,28 @@
+{"1":
+    {
+      "id": 1,
+      "name": "Ficus",
+      "schedule": 2,
+      "tips": "Lots of light, lots of water",
+      "image_url": "https://en.wikipedia.org/wiki/Ficus#/media/File:Ficus_carica_tree.jpg",
+      "wiki_page": "https://en.wikipedia.org/wiki/Ficus",
+      "url": "http://172.24.42.39:5000/plants/1", 
+      "fertalize": 14
+    },
+    "2":
+    {
+      "id": 2,
+      "name": "Lime Tree",
+      "schedule": 4,
+      "tips": "Lots of light, lots of water",
+      "url": "http://172.24.42.39:5000/plants/2"
+    },
+    "3":
+    {
+      "id": 3,
+      "name": "Aloe",
+      "schedule": 14,
+      "tips": "Medium light, light water",
+      "url": "http://172.24.42.39:5000/plants/3"
+    }
+}
