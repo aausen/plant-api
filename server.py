@@ -35,10 +35,17 @@ def get_single_plant(plant_id):
     
     return jsonify(plants[plant_id])
 
-@app.post("/plants/<plant_id>")
-def update_plant(plant_id):
+@app.route("/plants/search/<plant_name>", methods=['GET'])
+def get_search(plant_name):
+    """Search for plant by name."""
 
-    plant_to_update = plants[plant_id]
+   
+    return jsonify({'response': 200, 'results': plants[id][plant_name]})
+
+# @app.post("/plants/<plant_id>")
+# def update_plant(plant_id):
+
+#     plant_to_update = plants[plant_id]
 
 @app.errorhandler(404)
 def page_not_found(e):
